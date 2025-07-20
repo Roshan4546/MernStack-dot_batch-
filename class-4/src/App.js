@@ -38,7 +38,7 @@ function App() {
     console.log("Listener delete.");
     // Clean up event listener here
   };
-}, [text]);
+}, [text]); //dependency list.
 
 
   function changeHandler(event) {
