@@ -1,90 +1,35 @@
-
 import './App.css';
 import { useEffect, useState } from 'react';
+import Navbar from './components/Navbar';
+import Filter from './components/Filter';
+import Cards from './components/Cards';
+import { apiUrl, filterData } from "./data";
+import { toast } from 'react-toastify';
 
 function App() {
+  const [courses, setCourses] = useState(null);
 
-  // const [text, setText] = useState('');
-  // const [name, setName] = useState('love');
-
-  // variation-1 -> redering every time
-
-  // useEffect(() => {
-  //   console.log("ui render is done.");
-  // })
-
-
-  // variation 2 -> first render
-  // ! due to react have strictmode so that when rendering it print two times.
-  // ? to overcome delete strictmode tag.
-  // useEffect(() => {
-  //   console.log("ui rendering is done");
-  // }, []);
-
-
-  // variation-3 -> on first render + whenever depended.
-
-  // useEffect(() => {
-  //   console.log("change observed");
-  // }, [name]);
-
-  // variation-4 ->to handle unamounting of a component
-
-  //   useEffect(() => {
-  //   console.log("Listener add.");
-  // Add event listener here
-
-  //   return () => {
-  //     console.log("Listener delete.");
-  // Clean up event listener here
-  //   };
-  // }, [text]); //dependency list.
-
-
-  //   function changeHandler(event) {
-  //     console.log(text);
-  //     setText(event.target.value);
-  //   }
-
-
-  // return (
-  //   <div className="App">
-  //     <input type='text' onChange={changeHandler}></input>
-  //   </div>
-  // );
-
-
-
-  // ! home work
-
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowWidth(window.innerWidth);
-    }
-
-    // Add the event listener
-    window.addEventListener('resize', handleResize);
-
-    // Clean up the event listener on unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
+  useEffect(() => { // ! Api fetching 
+    const fetchData = async () => {
+      try {
+        const res = await fetch(apiUrl);
+        const data = await res.json();
+        setCourses(data.data); // Set the state
+        console.log(data);
+      } catch (error) {
+        toast.error("Something went wrong.");
+      }
     };
+    fetchData();
   }, []);
 
   return (
     <div className="App">
-      <h1>Current Window Width: {windowWidth}px</h1>
-
-      {windowWidth < 600 ? (
-        <p>📱 You're in mobile view</p>
-      ) : (
-        <p>🖥️ You're in desktop view</p>
-      )}
+      <Navbar />
+      <Filter filterData={filterData} />
+      <Cards courses={courses} />
     </div>
   );
-
 }
 
 export default App;
