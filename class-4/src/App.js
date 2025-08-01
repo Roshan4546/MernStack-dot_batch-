@@ -5,20 +5,24 @@ import Filter from './components/Filter';
 import Cards from './components/Cards';
 import { apiUrl, filterData } from "./data";
 import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   const [courses, setCourses] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [category, setCategory] = useState("All");
 
-  useEffect(() => { // ! Api fetching 
+  useEffect(() => {
     const fetchData = async () => {
+      setLoading(true);
       try {
         const res = await fetch(apiUrl);
         const data = await res.json();
-        setCourses(data.data); // Set the state
-        console.log(data);
+        setCourses(data.data);
       } catch (error) {
         toast.error("Something went wrong.");
       }
+      setLoading(false);
     };
     fetchData();
   }, []);
@@ -26,8 +30,16 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Filter filterData={filterData} />
-      <Cards courses={courses} />
+      <Filter
+        filterData={filterData}
+        selectedCategory={category}
+        setSelectedCategory={setCategory}
+      />
+      <Cards
+        courses={courses}
+        selectedCategory={category}
+        loading={loading}
+      />
     </div>
   );
 }

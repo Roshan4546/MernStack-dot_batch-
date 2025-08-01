@@ -1,12 +1,16 @@
 import React from "react";
-import './Filter.css';
-// import { apiUrl } from "../data";
-function Filter({ filterData }) {
+import "./Filter.css";
+
+function Filter({ filterData, selectedCategory, setSelectedCategory }) {
     return (
         <div className="filter">
-            {filterData.map((data, id) => (
-                <button key={id}>
-                    {data.title}
+            {filterData.map((item) => (
+                <button
+                    key={item.id}
+                    className={`filter-btn ${selectedCategory === item.title ? "active" : ""}`}
+                    onClick={() => setSelectedCategory(item.title)}
+                >
+                    {item.title}
                 </button>
             ))}
         </div>

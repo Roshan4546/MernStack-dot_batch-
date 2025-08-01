@@ -1,48 +1,39 @@
+// Card.js
 import React from "react";
 import { FcLike } from "react-icons/fc";
-import './Card.css';
+import { toast } from "react-toastify";
+import "./Card.css";
 
-
-
-function Card( props ) {
-
-    let course = props.course;
-    let likedCourses = props.likedCourses;
-    let setlikedCourses = props.setlikedCourses;
-    function clickHandler() {
+function Card({ course, likedCourses, setlikedCourses }) {
+    const clickHandler = () => {
         if (likedCourses.includes(course.id)) {
-            // previously liked
-            setlikedCourses((prev) => {
-                prev.filter((cid != course.id));
-            });
+            setlikedCourses((prev) => prev.filter((id) => id !== course.id));
+            toast.info("Removed from liked");
+        } else {
+            setlikedCourses((prev) => [...prev, course.id]);
+            toast.success("Added to liked");
         }
-        else {
-            // previously not liked
-            // insert course in liked course
+    };
 
-            if (likedCourses.length === 0) {
-                setlikedCourses([course.id]);
-            }
-            else {
-                setlikedCourses((prev) => [...prev, course.id]);
-            }
-            toast.success("liked successfully");
-            
-        }
-    }
     return (
         <div className="card">
-            <div>
-                <img className="img" src={course.image.url} alt={course.title} />
-                <div>
-                    <button className="like-button" onClick={clickHandler}>
-                        <FcLike fontSize="1.75rem" />
-                    </button>
-                </div>
-            </div>
+            <img className="img" src={course.image.url} alt={course.title} />
+            <button className="like-button" onClick={clickHandler}>
+                <FcLike
+                    fontSize="1.75rem"
+                    style={{
+                        opacity: likedCourses.includes(course.id) ? 1 : 0.3,
+                        transition: "opacity 0.2s ease",
+                    }}
+                />
+            </button>
             <div className="card-content">
                 <p className="card-title">{course.title}</p>
-                <p className="card-description">{course.description}</p>
+                <p className="card-description">
+                    {course.description.length > 100
+                        ? course.description.substring(0, 100) + "..."
+                        : course.description}
+                </p>
             </div>
         </div>
     );
