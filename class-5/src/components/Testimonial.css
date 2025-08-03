@@ -1,0 +1,58 @@
+/* ====== NAVIGATION BUTTONS (PREV/NEXT) ====== */
+.btn {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.btn button {
+    background: linear-gradient(to right, rgb(43, 103, 176), rgb(2, 168, 252)); /* Match heading color */
+    border: none;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: .5rem;
+}
+
+.btn button:hover {
+   background: linear-gradient(to right, rgb(1, 82, 182), rgb(0, 83, 124)); /* Match heading color */
+    transform: scale(1.1);
+}
+
+.btn svg {
+    color: #fff;
+    font-size: 1.8rem;
+}
+
+/* ====== SURPRISE ME BUTTON ====== */
+.surprise-me {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0.5rem;
+}
+
+.surprise-me button {
+    background-color: #2d7dbe;
+    color: #fff;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.surprise-me button:hover {
+    background-color: #0556a7;
+    transform: translateY(-2px);
+}

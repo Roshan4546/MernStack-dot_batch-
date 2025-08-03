@@ -1,0 +1,57 @@
+/* ========== RESET ========== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ========== BODY STYLING ========== */
+body {
+  font-family: 'Poppins', 'Segoe UI', sans-serif;
+  font-size: 1.1rem;
+  background-color: #eaebec; /* Dark greenish background */
+  color: #F1F6F5; /* Light text */
+  line-height: 1.6;
+}
+
+/* ========== MAIN CONTAINER ========== */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+/* ========== HEADING ========== */
+h1 {
+  font-family: 'Segoe UI Semibold', 'Lucida Sans', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #0d5cd3; /* Soft purple */
+  text-align: center;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+/* ========== DIVIDER LINE ========== */
+.line {
+  height: 3px;
+  width: 60px;
+  background: linear-gradient(to right, rgb(43, 103, 176), rgb(2, 168, 252)); /* Match heading color */
+  border-radius: 2px;
+  margin-bottom: 2rem;
+  animation: expand 1s ease-in-out forwards;
+}
+
+/* ========== ANIMATION ========== */
+@keyframes expand {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 60px;
+    opacity: 1;
+  }
+}
