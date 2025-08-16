@@ -1,28 +1,27 @@
-import { useState } from 'react'
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import './App.css'
+import { useState } from 'react';
+import { Routes, Route } from "react-router-dom";
+import './App.css';
 import Navbar from "./components/Navbar";
-import Home from './Pages/Home'; // Adjust the path as needed
+import Home from './Pages/Home';
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
 import Dashboard from "./Pages/Dashboard";
-import { use } from 'react';
-function App() {
 
+function App() {
   const [isLoggedin, setLoggedin] = useState(false);
 
   return (
     <div>
-      <Navbar isLoggedin = {isLoggedin} setLoggedin = {setLoggedin}></Navbar>
+      <Navbar isLoggedin={isLoggedin} setLoggedin={setLoggedin} />
 
       <Routes>
-        <Route path='/' element={<Home/>}></Route>
-        <Route path='/login' element={<Login/>}></Route>
-        <Route path='/signup' element={<Signup/>}></Route>
-        <Route path='/dashboard' element={<Dashboard/>}></Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login setLoggedin={setLoggedin} />} />
+        <Route path="/signup" element={<Signup setLoggedin={setLoggedin} />} />
+        <Route path="/dashboard" element={<Dashboard />} />
       </Routes>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;
