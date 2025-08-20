@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+.spinner {
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    border: 6px solid color-mix(in oklab, var(--primary) 30%, transparent);
+    border-top-color: var(--primary);
+    animation: spin var(--speed) linear infinite
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg)
+    }
+}
