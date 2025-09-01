@@ -1,9 +1,14 @@
+import React from "react"
+import Header from "./components/Header"
+import Blogs from "./components/Blogs"
+import PageChange from "./components/PageChange"
+
 export default function App() {
   return (
-    <div className="flex items-center justify-center h-screen bg-gray-900">
-      <h1 className="text-5xl font-bold text-blue-400 ">
-        🚀 Tailwind + Vite + React Working!
-      </h1>
+    <div className="bg-gray-900 h-screen  text-center ">
+      <Header></Header>
+      <Blogs></Blogs>
+      <PageChange></PageChange>
     </div>
   )
 }
