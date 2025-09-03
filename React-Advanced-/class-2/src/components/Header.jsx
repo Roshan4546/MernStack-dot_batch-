@@ -3,7 +3,9 @@ import React from 'react'
 function Header() {
     return (
         <div className=''>
-            <h1 className="text-3xl font-bold text-red-500">This is Header Part</h1>
+            <header className='bg-gray-700 h-[6vh] flex flex-col text-center justify-center'>
+                <h1 className='font-serif font-bold text-lg text-lime-500'>CodeHelps Blogging</h1>
+            </header>
 
         </div>
     )
