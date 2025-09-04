@@ -1,0 +1,22 @@
+const juices = [
+    { id: 1, name: "Tropicana", flavour: "Mango", type: "Fruit Juice", size: "1L", price: 120, expiryDate: "2025-12-01", isAvailable: true },
+    { id: 2, name: "Real", flavour: "Orange", type: "Fruit Juice", size: "500ml", price: 60, expiryDate: "2025-10-15", isAvailable: true },
+    { id: 3, name: "PaperBoat", flavour: "Apple", type: "Fruit Juice", size: "250ml", price: 40, expiryDate: "2025-09-20", isAvailable: true },
+    { id: 4, name: "MinuteMaid", flavour: "Mixed Fruit", type: "Fruit Blend", size: "1.5L", price: 150, expiryDate: "2026-01-05", isAvailable: false },
+    { id: 5, name: "B Natural", flavour: "Pineapple", type: "Fruit Juice", size: "1L", price: 110, expiryDate: "2025-11-18", isAvailable: true },
+    { id: 6, name: "Slice", flavour: "Mango", type: "Fruit Drink", size: "600ml", price: 50, expiryDate: "2025-09-30", isAvailable: true },
+    { id: 7, name: "Frooti", flavour: "Mango", type: "Fruit Drink", size: "250ml", price: 20, expiryDate: "2025-08-25", isAvailable: true },
+    { id: 8, name: "Real", flavour: "Pomegranate", type: "Fruit Juice", size: "1L", price: 130, expiryDate: "2025-12-12", isAvailable: false },
+    { id: 9, name: "PaperBoat", flavour: "Lychee", type: "Fruit Juice", size: "250ml", price: 35, expiryDate: "2025-10-10", isAvailable: true },
+    { id: 10, name: "MinuteMaid", flavour: "Grape", type: "Fruit Juice", size: "500ml", price: 55, expiryDate: "2025-11-01", isAvailable: true },
+    { id: 11, name: "Tropicana", flavour: "Guava", type: "Fruit Juice", size: "1L", price: 125, expiryDate: "2025-12-20", isAvailable: true },
+    { id: 12, name: "B Natural", flavour: "Cranberry", type: "Fruit Juice", size: "1L", price: 140, expiryDate: "2026-01-12", isAvailable: true },
+    { id: 13, name: "Real", flavour: "Watermelon", type: "Fruit Juice", size: "500ml", price: 70, expiryDate: "2025-08-28", isAvailable: false },
+    { id: 14, name: "PaperBoat", flavour: "Jamun", type: "Fruit Juice", size: "250ml", price: 45, expiryDate: "2025-09-15", isAvailable: true },
+    { id: 15, name: "Frooti", flavour: "Strawberry", type: "Fruit Drink", size: "600ml", price: 55, expiryDate: "2025-10-05", isAvailable: true },
+    { id: 16, name: "Slice", flavour: "Peach", type: "Fruit Drink", size: "250ml", price: 25, expiryDate: "2025-09-12", isAvailable: false },
+    { id: 17, name: "MinuteMaid", flavour: "Lemon", type: "Citrus Drink", size: "500ml", price: 50, expiryDate: "2025-09-30", isAvailable: true },
+    { id: 18, name: "Tropicana", flavour: "Carrot-Orange", type: "Vegetable Blend", size: "1L", price: 135, expiryDate: "2026-01-25", isAvailable: true },
+    { id: 19, name: "Real", flavour: "Kiwi", type: "Fruit Juice", size: "500ml", price: 80, expiryDate: "2025-11-10", isAvailable: true },
+    { id: 20, name: "PaperBoat", flavour: "Coconut Water", type: "Natural Drink", size: "250ml", price: 30, expiryDate: "2025-09-22", isAvailable: true }
+];
