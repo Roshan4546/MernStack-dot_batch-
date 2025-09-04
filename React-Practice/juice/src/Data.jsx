@@ -1,4 +1,4 @@
-const juices = [
+export const FiltersData = [
     { id: 1, name: "Tropicana", flavour: "Mango", type: "Fruit Juice", size: "1L", price: 120, expiryDate: "2025-12-01", isAvailable: true },
     { id: 2, name: "Real", flavour: "Orange", type: "Fruit Juice", size: "500ml", price: 60, expiryDate: "2025-10-15", isAvailable: true },
     { id: 3, name: "PaperBoat", flavour: "Apple", type: "Fruit Juice", size: "250ml", price: 40, expiryDate: "2025-09-20", isAvailable: true },
@@ -20,3 +20,5 @@ const juices = [
     { id: 19, name: "Real", flavour: "Kiwi", type: "Fruit Juice", size: "500ml", price: 80, expiryDate: "2025-11-10", isAvailable: true },
     { id: 20, name: "PaperBoat", flavour: "Coconut Water", type: "Natural Drink", size: "250ml", price: 30, expiryDate: "2025-09-22", isAvailable: true }
 ];
+
+

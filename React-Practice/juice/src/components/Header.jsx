@@ -14,11 +14,11 @@ function Header() {
             {/* Navigation */}
             <nav className="hidden md:flex">
                 <ul className="flex gap-6 text-lg font-medium">
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/story">Story</Link></li>
-                    <li><Link to="/drinks">Drinks</Link></li>
-                    <li><Link to="/orders">Orders</Link></li>
-                    <li><Link to="/contact">Contact</Link></li>
+                    <li><Link to="/" className="hover:text-amber-700" >Home</Link></li>
+                    <li><Link to="/story" className="hover:text-blue-300">Story</Link></li>
+                    <li><Link to="/drinks" className="hover:text-green-300">Drinks</Link></li>
+                    <li><Link to="/orders" className="hover:text-red-300">Orders</Link></li>
+                    <li><Link to="/contact" className="hover:text-yellow-300">Contact</Link></li>
                 </ul>
             </nav>
 
