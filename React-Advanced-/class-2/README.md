@@ -75,3 +75,46 @@ To make data access simpler and the code easier to maintain.
 
 
 
+
+# 📖 React Router Hooks: `useLocation` & `useParams`
+
+This guide explains how to use two important React Router hooks: **`useLocation`** and **`useParams`**.
+
+---
+
+## 🔹 1. `useLocation`
+
+The `useLocation` hook gives access to the **current location object** of your app.  
+It is useful for:
+- Checking the current URL path
+- Reading query parameters (`?id=123`)
+- Accessing hash fragments (`#section`)
+- Working with route state
+
+### ✅ Example:
+```jsx
+import React from "react";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+
+function ShowLocation() {
+  const location = useLocation();
+
+  return (
+    <div>
+      <h2>📍 Current Location</h2>
+      <p>Pathname: {location.pathname}</p>
+      <p>Search Params: {location.search}</p>
+      <p>Hash: {location.hash}</p>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/*" element={<ShowLocation />} />
+      </Routes>
+    </BrowserRouter>
+  );
+}
