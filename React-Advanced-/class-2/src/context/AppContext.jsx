@@ -1,7 +1,6 @@
-import React, { createContext, useState } from 'react'
-import { baseUrl } from '../baseUrl';
+import React, { createContext, useState } from "react";
+import { baseUrl } from "../baseUrl";
 
-// ✅ Step-1: create context
 export const AppContext = createContext();
 
 export default function AppContextProvider({ children }) {
@@ -10,37 +9,27 @@ export default function AppContextProvider({ children }) {
     const [page, setPage] = useState(1);
     const [totalPages, setTotalPages] = useState(null);
 
-    // ✅ fetch blogs
-    async function fetchBlogPosts(page = 1, tag=null, category) {
+    // ✅ Fetch blogs
+    async function fetchBlogPosts(page = 1, tag = null, category = null) {
         setLoading(true);
 
-        // let url = `${baseUrl}?page=${page}`;
-        // ! class-3 update
-        let url = `${baseUrl}?page=${page}`;
-        if (tag) {
-            url += `&tag=${tag}`;
-        }
-        if (category) {
-            url += `&category=${category}`;
-        }
+        const params = new URLSearchParams({ page });
+        if (tag) params.append("tag", tag);
+        if (category) params.append("category", category);
+
+        const url = `${baseUrl}?${params.toString()}`;
+        console.log("🌐 Fetching:", url); // ✅ Debug log
 
         try {
-            const result = await fetch(url);
-            const data = await result.json();
+            const res = await fetch(url);
+            const data = await res.json();
+            console.log("✅ API Response:", data); // ✅ Debug log
 
-            // 👇 print full API response
-            console.log("📌 API Response:", data);
-
-            // 👇 print individual parts if needed
-            console.log("➡️ Page:", data.page);
-            console.log("➡️ Total Pages:", data.totalPages);
-            console.log("➡️ Posts:", data.posts);
-
-            setPage(data.page);
-            setPosts(data.posts);
-            setTotalPages(data.totalPages);
+            setPage(data.page || 1);
+            setPosts(data.posts || []);
+            setTotalPages(data.totalPages || null);
         } catch (error) {
-            console.log("❌ Error in fetching data:", error);
+            console.error("❌ Error fetching blogs:", error);
             setPage(1);
             setPosts([]);
             setTotalPages(null);
@@ -49,25 +38,22 @@ export default function AppContextProvider({ children }) {
         setLoading(false);
     }
 
-    // ✅ handle pagination
+
+    // ✅ Handle pagination
     function handlePageChange(newPage) {
         setPage(newPage);
         fetchBlogPosts(newPage);
     }
 
-    // ✅ context value
+    // ✅ Context value
     const value = {
         posts,
         loading,
         page,
         totalPages,
         fetchBlogPosts,
-        handlePageChange
+        handlePageChange,
     };
 
-    return (
-        <AppContext.Provider value={value}>
-            {children}
-        </AppContext.Provider>
-    );
+    return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
 }

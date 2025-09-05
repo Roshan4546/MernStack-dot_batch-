@@ -17,7 +17,8 @@ function BlogPage() {
 
     async function fetchRelatedBlogs() {
         setloading(true);
-        let url = `${baseUrl}?blogId=${blogId}`;
+        // let url = `${baseUrl}?blogId=${blogId}`;
+        let url = "https://codehelp-apis.vercel.app/api/";
 
         try {
             const res = await fetch(url);

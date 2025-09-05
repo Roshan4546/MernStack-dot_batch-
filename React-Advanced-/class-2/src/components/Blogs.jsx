@@ -1,24 +1,34 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { AppContext } from "../context/AppContext";
 import Spinner from "./Spinner";
 import BlogDetails from "./BlogDetails";
-function Blogs() {
-    const { loading, posts } = useContext(AppContext);
+
+function Blogs({ tag, category }) {
+    const { loading, posts, fetchBlogPosts } = useContext(AppContext);
+
+    useEffect(() => {
+        if (tag) {
+            fetchBlogPosts(1, tag, null);
+        } else if (category) {
+            fetchBlogPosts(1, null, category);
+        } else {
+            fetchBlogPosts(1);
+        }
+        // ❌ removed fetchBlogPosts from deps to avoid infinite loop
+    }, [tag, category]);
+
+    if (loading) return <Spinner />;
+
+    if (!posts || posts.length === 0) {
+        return <p className="text-red-500">No blogs found.</p>;
+    }
 
     return (
-        <div className="flex flex-col items-center w-[650px] border-x border-blue-300 px-10 py-6 bg-white shadow-lg rounded-lg">
-            {loading ? (
-                <Spinner />
-            ) : posts.length === 0 ? (
-                <div>
-                    <p className="text-gray-600 text-lg font-medium">No Post Found</p>
-                </div>
-            ) : (
-                // posts.map((post, index) => (
-                //     <BlogDetails key={post.id} post={post}></BlogDetails>
-                // ))
-                <BlogDetails></BlogDetails>
-            )}
+        <div className="space-y-6">
+            {/* {posts.map((post) => (
+                <BlogDetails key={post.id} post={post} />
+            ))} */}
+            <BlogDetails />
         </div>
     );
 }
