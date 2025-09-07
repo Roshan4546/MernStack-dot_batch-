@@ -1,1 +1,1 @@
-const api = "https://68bc4f520f2491613ede9d1f.mockapi.io/products";
+const api = "https://68bd7dc6227c48698f84a335.mockapi.io/produts";

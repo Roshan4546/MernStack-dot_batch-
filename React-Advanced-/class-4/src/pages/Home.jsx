@@ -3,7 +3,8 @@ import Spinner from "../components/Spinner";
 import ProductCard from '../components/ProductCard';
 
 const Home = () => {
-    const api = "https://68bc4f520f2491613ede9d1f.mockapi.io/products";
+    const api = "https://68bd7dc6227c48698f84a335.mockapi.io/produts";
+    // const api = "https://68bd7dc6227c48698f84a335.mockapi.io/produts";
 
     const [loading, setLoading] = useState(false); // use [] instead of {}
     const [posts, setPosts] = useState([]);        // same here, also corrected variable name
@@ -29,11 +30,11 @@ const Home = () => {
     }, []);
 
     return (
-        <div className="p-6">
+        <div className="p-6  flex items-center justify-center bg-gray-900 ">
             {loading ? (
                 <Spinner />
             ) : posts.length > 0 ? (
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-[1000px]  ">
                     {posts.map((post) => (
                         <ProductCard key={post.id} post={post} />
                     ))}
