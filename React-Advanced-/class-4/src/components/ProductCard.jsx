@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { add, remove } from '../redux/slice/CartSlice';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
 const ProductCard = ({ post }) => {
     const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cart);
@@ -24,7 +25,11 @@ const ProductCard = ({ post }) => {
 
             {/* Product Image */}
             <div className="w-full h-48 flex justify-center items-center mb-4 bg-gray-50 rounded-lg overflow-hidden">
-                <img src={post.image} alt={post.title} className="object-contain h-full transition-transform duration-300 hover:scale-110" />
+                <img
+                    src={post.image}
+                    alt={post.title}
+                    className="object-contain h-full transition-transform duration-300 hover:scale-110"
+                />
             </div>
 
             {/* Product Info */}
@@ -36,13 +41,17 @@ const ProductCard = ({ post }) => {
             {/* Product Details */}
             <div className="flex justify-between items-center text-gray-700 font-medium mb-4">
                 <p className="text-lg font-bold">${post.price}</p>
-                <p className="text-sm">⭐ {post.rating.rate}</p>
-                <p className="text-sm">({post.rating.count})</p>
+                <div className="flex items-center gap-1 text-sm">
+                    <span>⭐ {post?.rating?.rate ?? "N/A"}</span>
+                    <span>({post?.rating?.count ?? 0})</span>
+                </div>
             </div>
 
             {/* Optional Warranty */}
             {post.warranty && (
-                <p className="text-gray-400 text-sm mb-2">Warranty: {post.warranty}</p>
+                <p className="text-gray-400 text-sm mb-2">
+                    Warranty: {post.warranty}
+                </p>
             )}
 
             {/* Add/Remove Cart Button */}
