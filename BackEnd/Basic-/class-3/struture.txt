@@ -1,0 +1,19 @@
+blog-frontend/
+│
+├── src/
+│   ├── components/
+│   │   ├── BlogList.jsx
+│   │   ├── BlogCard.jsx
+│   │   ├── CreateBlog.jsx
+│   │   ├── EditBlog.jsx
+│   │   └── Navbar.jsx
+│   │
+│   ├── pages/
+│   │   ├── Home.jsx
+│   │   └── BlogDetails.jsx
+│   │
+│   ├── App.jsx
+│   ├── index.js
+│   └── api.js   ← (Axios base URL setup)
+│
+└── package.json

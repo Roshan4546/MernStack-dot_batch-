@@ -7,6 +7,7 @@ exports.getBlogs = async (req, res) => {
         res.status(200).json({
             success: true,
             message: "display Blogs",
+            data: blog, // send the array
         })
     }
     catch (err) {

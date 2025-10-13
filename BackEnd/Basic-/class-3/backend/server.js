@@ -23,9 +23,17 @@ app.use("/api/v1", blogRoutes);
 app.get("/", (req, res) => {
     res.send("<h1>This is Home page</h1>");
 });
+app.get("/api/v1", (req, res) => {
+    res.json({
+        success: true,
+        message: "API is running! Use /blogs to fetch data."
+    });
+});
 
 // 7. start server
 const PORT = process.env.PORT || 2708;
 app.listen(PORT, () => {
     console.log(`✅ Server started successfully at port ${PORT}`);
 });
+
+
