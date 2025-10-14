@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import api from '../apiurl';   // your axios instance
+import api from '../apiurl';
 import { useNavigate } from 'react-router-dom';
 
 const CreateBlog = () => {
@@ -9,11 +9,10 @@ const CreateBlog = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-
         try {
-            const response = await api.post("/blogs", { title, description });
+            const response = await api.post("/controllerCreate", { title, description });
             console.log("Blog created:", response.data);
-            navigate("/"); // redirect to home
+            navigate("/");  // redirect to home after success
         } catch (error) {
             console.error(error);
             alert("Failed to create blog");

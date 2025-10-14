@@ -5,7 +5,7 @@ import BlogDetails from './BlogDetails'
 const Home = () => {
     return (
         <div className="container mx-auto p-6 flex flex-col items-center">
-            <Navbar></Navbar>
+            {/* <Navbar></Navbar> */}
             <BlogDetails></BlogDetails>
         </div>
     )
