@@ -3,19 +3,27 @@ const Blog = require("../models/Blog");
 exports.createBlog = async (req, res) => {
     try {
         const { title, description } = req.body;
-        const response = await Blog.create({ title, description });
 
-        res.status(200).json({
+        if (!title || !description) {
+            return res.status(400).json({
+                success: false,
+                message: "Title and description are required"
+            });
+        }
+
+        const blog = await Blog.create({ title, description });
+
+        res.status(201).json({
             success: true,
-            data: response,
+            data: blog,
             message: "Blog created successfully"
         });
     } catch (err) {
-        console.error(err);
+        console.error("Error creating blog:", err);
         res.status(500).json({
             success: false,
-            data: "Internal server error",
-            message: err.message
+            message: "Internal server error",
+            error: err.message
         });
     }
 };

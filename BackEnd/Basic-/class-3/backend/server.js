@@ -1,39 +1,28 @@
-
 const express = require("express");
 const dbConnect = require("./config/database");
 const blogRoutes = require("./routes/BlogRoute");
-
-
-// 1. access the express.
+const cors = require("cors");
 const app = express();
-
-// 2. load config from env file
 require("dotenv").config();
 
-// 3. connect to database
+// 1. connect database
 dbConnect();
 
-// 4. middleware to parse json request body
+// 2. enable CORS for frontend
+app.use(cors({ origin: "http://localhost:5173" }));
+
+// 3. parse JSON
 app.use(express.json());
 
-// 5. mount the blog API routes
+// 4. routes
 app.use("/api/v1", blogRoutes);
 
-// 6. default route
+// 5. default route
 app.get("/", (req, res) => {
     res.send("<h1>This is Home page</h1>");
 });
-app.get("/api/v1", (req, res) => {
-    res.json({
-        success: true,
-        message: "API is running! Use /blogs to fetch data."
-    });
-});
 
-// 7. start server
 const PORT = process.env.PORT || 2708;
-app.listen(PORT, () => {
-    console.log(`✅ Server started successfully at port ${PORT}`);
-});
+app.listen(PORT, () => console.log(`✅ Server running at ${PORT}`));
 
-
+app.use(cors({ origin: "http://localhost:5173" })); // allow frontend port
