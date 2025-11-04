@@ -3,6 +3,7 @@ const dbConnect = require("./config/database");
 const blogRoutes = require("./routes/BlogRoute");
 const cors = require("cors");
 const app = express();
+
 require("dotenv").config();
 
 // 1. connect database

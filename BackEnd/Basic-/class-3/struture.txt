@@ -17,3 +17,9 @@ blog-frontend/
 │   └── api.js   ← (Axios base URL setup)
 │
 └── package.json
+
+
+
+// 1st server.js
+// 2nd create config file access mongodb 
+// 3rd create .env file

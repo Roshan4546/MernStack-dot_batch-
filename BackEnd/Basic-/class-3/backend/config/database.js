@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 // fetch api database.
+// Usually in config/database.js or wherever you connect to MongoDB:
 require("dotenv").config();
 
 const dbConnect = () => {
