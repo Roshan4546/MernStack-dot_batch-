@@ -7,7 +7,7 @@ const router = express.Router();
 // Import the controller functions for login and signup
 const { login, signup } = require("../controller/Auth");
 
-const { auth, isStudent, isAdmin } = require("../middleware/auth");
+const { auth, isStudent, isAdmin } = require("../middleware/authe");
 
 // -------- AUTH ROUTES --------
 

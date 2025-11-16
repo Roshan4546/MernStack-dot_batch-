@@ -10,6 +10,10 @@ require('dotenv').config();
 // Get PORT value from .env, if not available use 4000 as default
 const PORT = process.env.PORT || 4000;
 
+// import cookie parser
+const cookieParser = require("cookie-parser");
+app.use(cookieParser());
+
 // Middleware to parse JSON data from incoming requests
 app.use(express.json());
 
