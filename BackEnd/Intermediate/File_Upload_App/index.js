@@ -33,3 +33,4 @@ app.listen(PORT, () => {
 
 // http://localhost:5000/api/v1/upload/local
 // http://localhost:5000/api/v1/upload/cloudinary
+// http://localhost:5000/api/v1/upload/imageUpload
